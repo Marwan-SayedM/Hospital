@@ -1,0 +1,27 @@
+﻿@model List<ContactDoctor.Models.Doctor>
+
+<div class="container mx-auto mt-8 px-4">
+    <h1 class="text-3xl font-semibold text-center mb-8">Book Appointment</h1>
+
+    <div class="row">
+        @foreach (var doctor in Model)
+        {
+            <div class="col-4 d-flex mb-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="/images/@doctor.Img" class="card-img-top" alt="@doctor.Name">
+                    <div class="card-body">
+                        <div class="row">
+                            <h3 class="col-10">@doctor.Name</h3>
+                            
+                        </div>
+                        <p class="card-text">@doctor.Specialization</p>
+                        
+                        <a href="@Url.Action("CompleteAppointment", new { DrName = doctor.Name })" class="btn btn-primary">
+                            Book an Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
